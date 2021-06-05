@@ -2,7 +2,7 @@
     // API Data
     const baseUrl = "https://api.openweathermap.org/data/2.5/weather";
     const apiKey = "4853ac8d7c2d9b856d816dd08bd5f96b";
-    const port = 8081;
+    // const port = 8081;
 
     // DOM Elements
     const zipElement = document.getElementById("zip");
@@ -33,7 +33,9 @@
 
     // Save Entry
     const saveEntry = async({ temperature, date, feeling }) =>
-        await fetch(`http://localhost:${port}/projectData`, {
+    
+    // await fetch(`http://localhost:${port}/projectData`, {
+        await fetch(`https://weather-journal-0.herokuapp.com/projectData`, {
             method: "POST",
             credentials: "same-origin",
             headers: {
@@ -45,7 +47,7 @@
     // Update User Interface
     const updateUI = async() => {
 
-        const res = await fetch(`http://localhost:${port}/projectData`);
+        const res = await fetch(`https://weather-journal-0.herokuapp.com/projectData`);
         try {
             const { temperature, date, feeling } = await res.json();
 console.log("data = ", temperature, date, feeling);
